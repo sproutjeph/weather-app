@@ -5,7 +5,7 @@ const geocode = require('./utils/geocode');
 const forecast = require('./utils/forcast');
 
 const app = express();
-
+const port = process.env.PORT || 3000;
 //define paths
 const htmlFilePath = path.join(__dirname, '../public');
 const viewsPath = path.join(__dirname, '../templates/views');
@@ -85,6 +85,6 @@ app.get('*', (req, res) => {
     errorMessage: 'page not found',
   });
 });
-app.listen(3000, () => {
-  console.log('server is runing on 3000');
+app.listen(port, () => {
+  console.log(`server is runing on ${port}`);
 });
